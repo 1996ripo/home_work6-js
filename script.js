@@ -95,3 +95,116 @@
 
 
 // ------------------------6--------------------
+// function arrNpushAndShift(arr, n) {
+//     if (n == 0) {
+//         return arr;
+//     } else {
+//         arr.push(arr[0]);
+//         arr.shift();
+//         return arrNpushAndShift(arr, n - 1)
+//     }
+// };
+
+// // ----------------stugum------------
+// console.log(arrNpushAndShift(['a', 'b', 'c', 'd','e','f','g','h'], 3));
+
+// -------------------------7-------------------
+
+// function numSum(n) {
+//     let numbers = n.toString().split('');
+//     if (numbers.length == 1) {
+//         return numbers[0]
+//     } else {
+//         let n2 = 0;
+//         numbers.forEach(element => {
+//             n2 += +element
+//         });
+//         return numSum(n2);
+//     }
+// }
+
+// // -------------stugum-----------------
+// console.log(numSum(29));
+// console.log(numSum(14));
+// console.log(numSum(99999));
+// ---------------8--------------------
+
+// function deepClonObj(obj) {
+//     let cloneObj = {};
+
+//     for (const [key, value] of Object.entries(obj)) {
+//         if (typeof value == 'object') {
+//             cloneObj[key] = deepClonObj(value);
+
+//         } else {
+//             cloneObj[key] = obj[key];
+//         }
+//     }
+//     return cloneObj;
+
+// }
+
+// // ------------------stugum---------
+// const objTest = {
+//     a: 'hi',
+//     b: 'by',
+//     c: {
+//         ac: 'hi',
+//         ab: 'by'
+//     }
+// }
+
+// console.log(deepClonObj(objTest));
+// console.log(deepClonObj(objTest) ===objTest);
+// console.log(deepClonObj(objTest).c === objTest.c);
+// ---------9---------------
+// function debounce(func, wait) {
+//     let timeout;
+
+//     return function executedFunction(...args) {
+//         const later = () => {
+//             clearTimeout(timeout);
+//             func(...args);
+//         };
+
+//         clearTimeout(timeout);
+//         timeout = setTimeout(later, wait);
+//     };
+// };
+
+// // ----stugum---
+// const checkPositiveNumber = e => {
+//     console.log(+e.target.value > 0);
+// };
+// const numInput = document.querySelector("input[type=number]");
+// numInput.addEventListener("input", debounce(checkPositiveNumber, 600));
+// ---------------10-------------------
+
+// function throttle(func, timeFrame) {
+//     let lastTime = 0;
+//     return function () {
+//         let now = new Date();
+//         if (now - lastTime >= timeFrame) {
+//             func();
+//             lastTime = now;
+//         }
+//     };
+// }
+
+
+// // ------stugum-----
+
+// let throt_fun = throttle(function () {
+//     console.log('Function throttled after 1000ms!');
+// }, 1000);
+
+// // Defining loop
+// let loop = function () {
+//     setTimeout(loop, 5)
+//     throt_fun();
+// };
+
+// // Calling loop to start
+// loop();
+
+// throt_fun();
